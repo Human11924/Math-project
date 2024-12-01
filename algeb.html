@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #0d0247;
+        }
+
+        img {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Стиль для блока с полем ввода */
+        .change {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Окно ввода поверх изображения */
+        .overlay {
+
+            position: absolute;
+            top: 40%; /* Центрирование по вертикали */
+            left: 70%; /* Центрирование по горизонтали */
+            transform: translate(-50%, -50%);
+            background-color: rgba(109, 68, 224, 0.8); /* Полупрозрачный фон */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(84, 5, 211, 0.3);
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: rgb(0, 0, 0);
+            background-color:  #fcd15e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ffab52;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="images/1.png" alt="Изображение">
+    </div>
+    <div>
+        <img src="images/2.png" alt="Изображение" style="margin-top: 60px;">
+    </div>
+    <div>
+        <img src="images/3.png" alt="Изображение" style="margin-top: 60px;">
+    </div>
+    <div>
+        <img src="images/4.png" alt="Изображение" style="margin-top: 60px;">
+    </div>
+
+    <div class="change">
+        <!-- Изображение q1 -->
+        <img id="image" src="images/q1.png" alt="Изображение">
+
+        <!-- Поле ввода поверх изображения -->
+        <div class="overlay">
+            <h1></h1>
+            <input type="text" id="wordInput" placeholder="Введите ответ...">
+            <button onclick="changeImage()">ОТВЕТ</button>
+        </div>
+    </div>
+
+    <script>
+        function changeImage() {
+            const input = document.getElementById('wordInput').value.toLowerCase();
+            const image = document.getElementById('image');
+
+            const images = {
+                "отв": "images/q2.png",
+                "отражения реки": "images/q3.png",
+                природа: "nature.jpg"
+            };
+
+            if (images[input]) {
+                image.src = images[input];
+                image.alt = `Изображение: ${input}`;
+            } 
+        }
+    </script>
+</body>
+</html>
